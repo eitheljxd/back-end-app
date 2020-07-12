@@ -8,20 +8,18 @@ var rolesValidos = {
     values: ['ADMIN_ROLE', 'USER_ROLE'],
     message: '{VALUE} no es un rol permitido'
 };
-        
+
 
 var usuarioSchema = new Schema({
 
     nombre: { type: String, required: [true, 'El nombre es necesario'] },
-    apellidos : { type: String, required: [true, 'Los apellidos son necesario'] },
     email: { type: String, unique: true, required: [true, 'El correo es necesario'] },
-    documento : { type: String, unique: true, required: [true, 'El documento de identidad es necesario'] },
-    password: { type: String, required: [true, 'La contraseÃ±a es necesaria'] },
+    password: { type: String, required: [true, 'La contraseña es necesaria'] },
     img: { type: String, required: false },
     role: { type: String, required: true, default: 'USER_ROLE', enum: rolesValidos }
 
 });
 
-usuarioSchema.plugin(uniqueValidator, { message: '{PATH} debe de ser Ãºnico' });
+usuarioSchema.plugin(uniqueValidator, { message: '{PATH} debe de ser único' });
 
 module.exports = mongoose.model('Usuario', usuarioSchema);
