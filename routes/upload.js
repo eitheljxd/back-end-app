@@ -75,15 +75,7 @@ app.put('/:tipo/:id', (req, res, next) => {
             });
         }
 
-
         subirPorTipo(tipo, id, nombreArchivo, res);
-
-        // res.status(200).json({
-        //     ok: true,
-        //     mensaje: 'Archivo movido',
-        //     extensionArchivo: extensionArchivo
-        // });
-
 
     })
 
