@@ -1,17 +1,32 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const { Schema, model } = require('mongoose');
 
-
-var medicoSchema = new Schema({
-    nombre: { type: String, required: [true, 'El nombre es necesario'] },
-    img: { type: String, required: false },
-    usuario: { type: Schema.Types.ObjectId, ref: 'Usuario', required: true },
+const MedicoSchema = Schema({
+    nombre: {
+        type: String,
+        required: true
+    },
+    img: {
+        type: String,
+    },
+    usuario: {
+        type: Schema.Types.ObjectId,
+        ref: 'Usuario',
+        required: true
+    },
     hospital: {
         type: Schema.Types.ObjectId,
         ref: 'Hospital',
-        required: [true, 'El id hospital esun campo obligatorio ']
-    }
+        required: true
+    },
+    
 });
 
 
-module.exports = mongoose.model('Medico', medicoSchema);
+MedicoSchema.method('toJSON', function() {
+    const { __v, ...object } = this.toObject();
+    return object;
+})
+
+
+
+module.exports = model( 'Medico', MedicoSchema );
