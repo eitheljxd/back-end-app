@@ -16,7 +16,7 @@ const getMedicos = async(req, res = response) => {
 }
 
 const crearMedico = async (req, res = response) => {
-
+    console.log(req);
     const uid = req.uid;
     const medico = new Medico({
         usuario: uid,

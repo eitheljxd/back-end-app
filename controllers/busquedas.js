@@ -31,6 +31,7 @@ const getDocumentosColeccion = async(req, res = response ) => {
     const busqueda = req.params.busqueda;
     const regex    = new RegExp( busqueda, 'i' );
 
+   
     let data = [];
 
     switch ( tabla ) {
