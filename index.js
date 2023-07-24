@@ -22,7 +22,7 @@ dbConnection();
 app.use(express.static("public"));
 
 // Rutas
-app.use("/api/usuarios2", require("./routes/usuarios"));
+app.use("/api/usuarios3", require("./routes/usuarios"));
 app.use("/api/usuarios", require("./routes/usuarios"));
 app.use("/api/hospitales", require("./routes/hospitales"));
 app.use("/api/medicos", require("./routes/medicos"));
